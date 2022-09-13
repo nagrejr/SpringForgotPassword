@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org
+      xmlns:sec=http://www.thymeleaf.org/extras/spring-security>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign-Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+<body>
+
+	<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MyTestApplication</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Navbar text with an inline element
+      </span>
+    </div>
+  </div>
+</nav>
+
+<div class = "container">
+
+<h1>Sign-Up</h1>
+
+<div th:if="${param.success}">
+	<div class="alert alert-info">You've successfully registered to our app!
+	</div>
+</div>
+
+
+<form th:action="@{/registration}" method="post" th:object="${user}">
+					<div class="form-group col-md-4">
+						<label class="control-label" for="firstName"> First Name </label>
+						<input id="firstName" class="form-control" th:field="*{firstName}"
+							required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group col-md-4">
+						<label class="control-label" for="lastName"> Last Name </label> <input
+							id="lastName" class="form-control" th:field="*{lastName}"
+							required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group col-md-4">
+						<label class="control-label" for="email"> Email </label> <input
+							id="email" class="form-control" th:field="*{email}" required
+							autofocus="autofocus" />
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label class="control-label" for="address"> Address </label> <input
+							id="address" class="form-control" th:field="*{address}"
+							required autofocus="autofocus" />
+					</div>
+					
+					<div class="form-group col-md-4">
+						<label class="control-label" for="phoneNumber"> Phone Number </label> <input
+							id="phoneNumber" class="form-control" th:field="*{phoneNumber}"
+							required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group col-md-4">
+						<label class="control-label" for="password"> Password </label> <input
+							id="password" class="form-control" type="password"
+							th:field="*{password}" required autofocus="autofocus" />
+					</div>
+
+					<br>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Register</button>
+						<span>Already registered? <a href="/" th:href="@{/login}">Login
+								here</a></span>
+					</div>
+				</form>
+</div>
+</body>
+</html>
