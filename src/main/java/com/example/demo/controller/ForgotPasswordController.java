@@ -50,7 +50,7 @@ public class ForgotPasswordController {
 			SimpleMailMessage mailMessage = new SimpleMailMessage();
 			mailMessage.setTo(existingUser.getEmail());
 			mailMessage.setSubject("Complete Password Reset!");
-			mailMessage.setFrom("nagrejr@gmail.com");
+			mailMessage.setFrom("yourmail@gmail.com");
 			mailMessage.setText("To complete the password reset process, please click here: "
 			+"http://localhost:8080/confirm-reset?token="+confirmationToken.getConfirmationToken());
 			
